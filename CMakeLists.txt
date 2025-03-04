@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.30)
+
+project(klang
+  VERSION 0.1.0
+  DESCRIPTION "A C++ like embedded language"
+  LANGUAGES CXX
+)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+  include(clang_format)
+  include(clang_tidy)
+endif()
+
+add_subdirectory(src)
