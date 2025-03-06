@@ -1,10 +1,11 @@
 #include "main.hpp"
 
-#include <common/types.hpp>
 #include <print>
 #include <span>
 #include <string_view>
 #include <vector>
+
+#include <common/types.hpp>
 
 auto main(i32 argc, char **argv) -> i32 {
   auto args = std::vector<std::string_view>(argc);

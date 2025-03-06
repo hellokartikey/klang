@@ -18,7 +18,6 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
   set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
   include(clang_format)
-  include(clang_tidy)
 endif()
 
 add_subdirectory(src)

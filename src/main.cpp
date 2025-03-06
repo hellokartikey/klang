@@ -1,9 +1,10 @@
+#include <print>
+#include <string>
+
 #include <common/error.hpp>
 #include <common/main.hpp>
 #include <common/types.hpp>
 #include <lexer/token.hpp>
-#include <print>
-#include <string>
 
 auto hk::main(arguements /* args */) -> result<i32> {
   std::println("Hello, world!");

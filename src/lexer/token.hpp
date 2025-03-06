@@ -1,10 +1,11 @@
 #ifndef HK_KLANG_LEXER_TOKEN_HPP
 #define HK_KLANG_LEXER_TOKEN_HPP
 
-#include <common/types.hpp>
-#include <ctre.hpp>
 #include <format>
+
 #include <magic_enum/magic_enum.hpp>
+
+#include <common/types.hpp>
 
 namespace klang::lexer {
 class Token {
@@ -22,7 +23,7 @@ class Token {
   std::string m_text;
 };
 
-constexpr auto match_identifier = ctre::starts_with<"[a-z][a-z0-9]+">;
+using TokenStream = std::vector<Token>;
 }  // namespace klang::lexer
 
 template <>

@@ -1,10 +1,11 @@
 #ifndef HK_KLANG_COMMON_MAIN_HPP
 #define HK_KLANG_COMMON_MAIN_HPP
 
-#include <common/error.hpp>
-#include <common/types.hpp>
 #include <span>
 #include <string_view>
+
+#include <common/error.hpp>
+#include <common/types.hpp>
 
 class arguements {
  public:
@@ -15,7 +16,7 @@ class arguements {
         m_argv(argv),
         m_span(span) {}
 
-  auto argc() -> i32 { return m_argc; }
+  [[nodiscard]] auto argc() const -> i32 { return m_argc; }
   auto argv() -> char ** { return m_argv; };
   auto span() -> span_view { return m_span; }
 
