@@ -7,7 +7,8 @@ class CHIP8(ConanFile):
     generators = "CMakeDeps", "CMakeToolchain"
 
     def requirements(self):
-        pass
+        self.requires("ctre/3.9.0")
+        self.requires("magic_enum/0.9.7")
 
     def build_requirements(self):
         pass
