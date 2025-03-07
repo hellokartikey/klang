@@ -8,7 +8,7 @@
 
 #include <common/types.hpp>
 
-namespace klang::lexer {
+namespace klang {
 class Token {
  public:
   enum class Type : i8 { IDENTIFIER };
@@ -27,12 +27,11 @@ class Token {
 };
 
 using TokenStream = std::vector<Token>;
-}  // namespace klang::lexer
+}  // namespace klang
 
 template <>
-struct fmt::formatter<klang::lexer::Token> : fmt::formatter<std::string> {
-  auto format(const klang::lexer::Token& token,
-              fmt::format_context& ctx) const {
+struct fmt::formatter<klang::Token> : fmt::formatter<std::string> {
+  auto format(const klang::Token& token, fmt::format_context& ctx) const {
     using magic_enum::enum_name;
     auto output = fmt::format("{}({})", enum_name(token.type()), token.text());
     return fmt::formatter<std::string>::format(output, ctx);

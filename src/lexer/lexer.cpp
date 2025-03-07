@@ -7,7 +7,7 @@
 
 #include <lexer/regex.hpp>
 
-namespace klang::lexer {
+namespace klang {
 Lexer::Lexer(std::string text)
     : m_text(std::move(text)),
       m_current(m_text.begin()),
@@ -43,4 +43,4 @@ auto Lexer::parse_one() -> result<Token> {
 }
 
 auto Lexer::is_eof() const -> bool { return m_current == m_end; }
-}  // namespace klang::lexer
+}  // namespace klang

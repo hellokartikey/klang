@@ -4,7 +4,7 @@
 #include <common/error.hpp>
 #include <lexer/token.hpp>
 
-namespace klang::lexer {
+namespace klang {
 class Lexer {
  public:
   Lexer(std::string text);
@@ -33,6 +33,6 @@ class Lexer {
   std::string::const_iterator m_current;
   std::string::const_iterator m_end;
 };
-}  // namespace klang::lexer
+}  // namespace klang
 
 #endif
