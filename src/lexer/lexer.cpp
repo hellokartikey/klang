@@ -6,6 +6,12 @@
 #include <fmt/base.h>
 
 #include <lexer/regex.hpp>
+#include "lexer/token.hpp"
+
+#define MATCH_TOKEN(regex, token_type)    \
+  if (auto match = check(regex); match) { \
+    return Token(token_type, *match);     \
+  }
 
 namespace klang {
 Lexer::Lexer(std::string text)
@@ -34,17 +40,12 @@ auto Lexer::parse_one() -> result<Token> {
 
   using enum Token::Type;
 
-  if (auto match = check(regex::floating_point); match) {
-    return Token(FLOAT, *match);
-  }
+  MATCH_TOKEN(regex::binary_op, BINARY_OP);
 
-  if (auto match = check(regex::integer); match) {
-    return Token(INTEGER, *match);
-  }
+  MATCH_TOKEN(regex::floating_point, FLOAT);
+  MATCH_TOKEN(regex::integer, INTEGER);
 
-  if (auto match = check(regex::identifier); match) {
-    return Token(IDENTIFIER, *match);
-  }
+  MATCH_TOKEN(regex::identifier, IDENTIFIER);
 
   return error("Unable to parse the string");
 }
