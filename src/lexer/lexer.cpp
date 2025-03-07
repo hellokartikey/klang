@@ -37,6 +37,10 @@ auto Lexer::parse_one() -> result<Token> {
 
   using enum Token::Type;
 
+  if (auto match = check(regex::floating_point); match) {
+    return Token(FLOAT, *match);
+  }
+
   if (auto match = check(regex::integer); match) {
     return Token(INTEGER, *match);
   }

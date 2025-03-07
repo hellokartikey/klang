@@ -4,9 +4,13 @@
 #include <ctre.hpp>
 
 namespace klang::regex {
-constexpr auto whitespace = ctre::starts_with<"[ \t\n]+">;
-constexpr auto identifier = ctre::starts_with<"[_a-zA-Z][_a-zA-Z0-9]*">;
-constexpr auto integer = ctre::starts_with<R"([+\-]?[0-9][0-9]+)">;
+constexpr auto whitespace = ctre::starts_with<R"([ \t\n]+)">;
+
+constexpr auto identifier = ctre::starts_with<R"([_a-zA-Z][_a-zA-Z0-9]*)">;
+
+constexpr auto integer = ctre::starts_with<R"([+\-]?[0-9]+)">;
+constexpr auto floating_point =
+    ctre::starts_with<R"([+\-]?([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+))">;
 }  // namespace klang::regex
 
 #endif
