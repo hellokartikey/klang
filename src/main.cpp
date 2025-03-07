@@ -12,7 +12,7 @@
 auto hk::main(arguements /* args */) -> result<i32> {
   fmt::println("Hello, world!");
 
-  auto lex = klang::Lexer("0.1 .69 1.");
+  auto lex = klang::Lexer("    0.1 .69 1.   69 _hello123   ");
 
   auto tokens = TRY(lex.parse());
   fmt::println("{}", tokens);

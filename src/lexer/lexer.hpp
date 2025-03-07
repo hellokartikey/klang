@@ -17,6 +17,9 @@ class Lexer {
   [[nodiscard]]
   auto is_eof() const -> bool;
 
+  // Skips whitespace characters
+  auto has_tokens() -> bool;
+
   auto parse_one() -> result<Token>;
 
   template <typename Regex>

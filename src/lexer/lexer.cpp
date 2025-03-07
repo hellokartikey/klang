@@ -16,8 +16,8 @@ Lexer::Lexer(std::string text)
 auto Lexer::parse() -> result<TokenStream> {
   auto tokens = TokenStream{};
 
-  while (auto token = parse_one()) {
-    tokens.push_back(*token);
+  while (has_tokens()) {
+    tokens.push_back(TRY(parse_one()));
   }
 
   if (tokens.empty()) {
@@ -31,9 +31,6 @@ auto Lexer::parse_one() -> result<Token> {
   if (is_eof()) {
     return error("EOF reached");
   }
-
-  // Move past any whitespace characters
-  std::ignore = check(regex::whitespace);
 
   using enum Token::Type;
 
@@ -53,4 +50,9 @@ auto Lexer::parse_one() -> result<Token> {
 }
 
 auto Lexer::is_eof() const -> bool { return m_current == m_end; }
+
+auto Lexer::has_tokens() -> bool {
+  std::ignore = check(regex::whitespace);
+  return not is_eof();
+}
 }  // namespace klang
