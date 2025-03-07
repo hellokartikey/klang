@@ -12,5 +12,6 @@ PRIVATE
 target_link_libraries(lexer
   common
   ctre::ctre
+  fmt::fmt
   magic_enum::magic_enum
 )

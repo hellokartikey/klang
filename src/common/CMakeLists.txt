@@ -9,3 +9,5 @@ PUBLIC
 PRIVATE
   main.cpp
 )
+
+target_link_libraries(common fmt::fmt)

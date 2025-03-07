@@ -8,4 +8,5 @@ add_executable(klang main.cpp)
 target_link_libraries(klang
   common
   lexer
+  fmt::fmt
 )

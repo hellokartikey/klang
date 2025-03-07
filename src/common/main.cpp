@@ -1,6 +1,5 @@
 #include "main.hpp"
 
-#include <print>
 #include <span>
 #include <string_view>
 #include <vector>
@@ -17,8 +16,7 @@ auto main(i32 argc, char **argv) -> i32 {
   auto result = hk::main(arguements(argc, argv, args));
 
   if (not result) {
-    // FIXME: Print proper error message
-    std::println(stderr, "Runtime error occured...");
+    fmt::println(stderr, "Runtime error: {}", result.error().message());
     return 1;
   }
 
