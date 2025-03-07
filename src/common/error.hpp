@@ -1,6 +1,7 @@
 #ifndef HK_KLANG_COMMON_ERROR_HPP
 #define HK_KLANG_COMMON_ERROR_HPP
 
+#include <concepts>
 #include <expected>
 #include <string_view>
 
@@ -9,13 +10,15 @@
 #include <common/types.hpp>
 
 // TODO: Add a static_assert to check if the result type is compatible
-#define TRY(expr)            \
-  ({                         \
-    auto result = (expr);    \
-    if (not result) {        \
-      return result.error(); \
-    }                        \
-    *result;                 \
+#define TRY(expr)                                                       \
+  ({                                                                    \
+    auto result = (expr);                                               \
+    static_assert(is_result<decltype(result)>,                          \
+                  "expression: " #expr " does not return result type"); \
+    if (not result) {                                                   \
+      return result.error();                                            \
+    }                                                                   \
+    *result;                                                            \
   })
 
 class error {
@@ -50,5 +53,11 @@ struct fmt::formatter<error> : fmt::formatter<std::string> {
 
 template <typename T>
 using result = error::result<T>;
+
+template <typename T>
+concept is_result = requires(T item) {
+  { static_cast<bool>(item) };
+  { *item };
+};
 
 #endif
