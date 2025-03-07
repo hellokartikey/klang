@@ -3,9 +3,10 @@
 
 #include <ctre.hpp>
 
-namespace klang::lexer::regex {
-constexpr auto match_whitespace = ctre::starts_with<"[ \t\n]+">;
-constexpr auto match_identifier = ctre::starts_with<"[a-zA-Z][a-zA-Z0-9]*">;
-}  // namespace klang::lexer::regex
+namespace klang::regex {
+constexpr auto whitespace = ctre::starts_with<"[ \t\n]+">;
+constexpr auto identifier = ctre::starts_with<"[_a-zA-Z][_a-zA-Z0-9]*">;
+constexpr auto integer = ctre::starts_with<R"([+\-]?[0-9][0-9]+)">;
+}  // namespace klang::regex
 
 #endif

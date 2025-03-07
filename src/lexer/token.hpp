@@ -11,7 +11,7 @@
 namespace klang {
 class Token {
  public:
-  enum class Type : i8 { IDENTIFIER };
+  enum class Type : i8 { IDENTIFIER, INTEGER };
 
   Token(Type type, std::string text);
 

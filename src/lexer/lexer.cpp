@@ -33,10 +33,16 @@ auto Lexer::parse_one() -> result<Token> {
   }
 
   // Move past any whitespace characters
-  std::ignore = check(regex::match_whitespace);
+  std::ignore = check(regex::whitespace);
 
-  if (auto match = check(regex::match_identifier); match) {
-    return Token(Token::Type::IDENTIFIER, *match);
+  using enum Token::Type;
+
+  if (auto match = check(regex::integer); match) {
+    return Token(INTEGER, *match);
+  }
+
+  if (auto match = check(regex::identifier); match) {
+    return Token(IDENTIFIER, *match);
   }
 
   return error("Unable to parse the string");
