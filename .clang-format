@@ -3,4 +3,5 @@ Language:        Cpp
 BasedOnStyle: Google
 PackConstructorInitializers: Never
 IncludeBlocks: Preserve
+BreakAfterAttributes: Always
 ...

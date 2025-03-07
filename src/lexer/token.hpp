@@ -15,9 +15,11 @@ class Token {
 
   Token(Type type, std::string text);
 
-  [[nodiscard]] auto type() const -> Type;
+  [[nodiscard]]
+  auto type() const -> Type;
 
-  [[nodiscard]] auto text() const -> const std::string&;
+  [[nodiscard]]
+  auto text() const -> const std::string&;
 
  private:
   Type m_type;

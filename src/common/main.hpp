@@ -16,7 +16,10 @@ class arguements {
         m_argv(argv),
         m_span(span) {}
 
-  [[nodiscard]] auto argc() const -> i32 { return m_argc; }
+  [[nodiscard]]
+  auto argc() const -> i32 {
+    return m_argc;
+  }
   auto argv() -> char ** { return m_argv; };
   auto span() -> span_view { return m_span; }
 
