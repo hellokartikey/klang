@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(ctre REQUIRED)
+find_package(lexy REQUIRED)
 find_package(fmt REQUIRED)
 find_package(magic_enum REQUIRED)
 

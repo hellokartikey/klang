@@ -8,6 +8,7 @@ class CHIP8(ConanFile):
 
     def requirements(self):
         self.requires("ctre/3.9.0")
+        self.requires("foonathan-lexy/2022.12.1")
         self.requires("magic_enum/0.9.7")
         self.requires("fmt/11.1.4")
 
