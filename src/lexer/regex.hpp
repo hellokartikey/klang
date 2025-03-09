@@ -28,6 +28,8 @@ constexpr auto compare_op = regex<R"((==)|(!=)|(<=)|(>=)|(<=>)|[<>])">;
 
 constexpr auto assign_op =
     regex<R"((\+=)|(-=)|(\*=)|(/=)|(%=)|(&=)|(\|=)|(^=)|(<<=)|(>>=)|(=))">;
+
+constexpr auto punctuation = regex<R"(;)">;
 }  // namespace klang::regex
 
 #endif

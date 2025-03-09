@@ -21,7 +21,8 @@ class Token {
     UNARY_OP,
     PRE_POST_OP,
     COMPARE_OP,
-    ASSIGN_OP
+    ASSIGN_OP,
+    PUNTUATION
   };
 
   Token(Type type, std::string text);

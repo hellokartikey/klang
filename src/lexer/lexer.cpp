@@ -40,6 +40,8 @@ auto Lexer::parse_one() -> result<Token> {
 
   using enum Token::Type;
 
+  MATCH_TOKEN(regex::punctuation, PUNTUATION);
+
   MATCH_TOKEN(regex::assign_op, ASSIGN_OP);
 
   MATCH_TOKEN(regex::compare_op, COMPARE_OP);
