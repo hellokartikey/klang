@@ -8,4 +8,6 @@ Token::Token(Type type, std::string text)
 auto Token::type() const -> Type { return m_type; }
 
 auto Token::text() const -> const std::string& { return m_text; }
+
+auto Token::operator==(Type other) const -> bool { return type() == other; }
 }  // namespace klang

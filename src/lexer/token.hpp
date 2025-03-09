@@ -31,6 +31,8 @@ class Token {
   [[nodiscard]]
   auto text() const -> const std::string&;
 
+  auto operator==(Type other) const -> bool;
+
  private:
   Type m_type;
   std::string m_text;
