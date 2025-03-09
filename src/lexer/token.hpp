@@ -13,6 +13,7 @@ class Token {
  public:
   enum class Type : i8 {
     IDENTIFIER,
+    BUILTIN,
     INTEGER,
     FLOAT,
     BINARY_OP,

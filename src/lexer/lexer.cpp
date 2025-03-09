@@ -53,6 +53,8 @@ auto Lexer::parse_one() -> result<Token> {
   MATCH_TOKEN(regex::floating_point, FLOAT);
   MATCH_TOKEN(regex::integer, INTEGER);
 
+  MATCH_TOKEN(regex::builtin_type, BUILTIN);
+
   MATCH_TOKEN(regex::identifier, IDENTIFIER);
 
   return error("Unable to parse the string");

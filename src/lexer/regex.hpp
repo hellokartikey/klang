@@ -11,6 +11,10 @@ constexpr auto whitespace = regex<R"([ \t\n]+)">;
 
 constexpr auto identifier = regex<R"([_a-zA-Z][_a-zA-Z0-9]*)">;
 
+constexpr auto builtin_type = regex<"(char)|"
+                                    "(i8)|(i16)|(i32)|(i64)|"
+                                    "(u8)|(u16)|(u32)|(u64)">;
+
 constexpr auto integer = regex<R"([0-9]+)">;
 constexpr auto floating_point = regex<R"(([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+))">;
 
