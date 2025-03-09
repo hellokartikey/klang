@@ -9,7 +9,6 @@
 
 #include <common/types.hpp>
 
-// TODO: Add a static_assert to check if the result type is compatible
 #define TRY(expr)                                                       \
   ({                                                                    \
     auto result = (expr);                                               \

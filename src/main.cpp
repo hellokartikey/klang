@@ -12,7 +12,7 @@
 auto hk::main(arguements /* args */) -> result<i32> {
   fmt::println("Hello, world!");
 
-  auto lex = klang::Lexer("test ? true : false");
+  auto lex = klang::Lexer("a = 2 + 51 * k");
 
   auto tokens = TRY(lex.parse());
   fmt::println("{}", tokens);

@@ -40,7 +40,15 @@ auto Lexer::parse_one() -> result<Token> {
 
   using enum Token::Type;
 
-  MATCH_TOKEN(regex::binary_op, BINARY_OP);
+  MATCH_TOKEN(regex::assign_op, ASSIGN_OP);
+
+  MATCH_TOKEN(regex::compare_op, COMPARE_OP);
+
+  MATCH_TOKEN(regex::pre_post_op, PRE_POST_OP);
+
+  MATCH_TOKEN(regex::binary_math_op, BINARY_OP);
+  MATCH_TOKEN(regex::context_math_op, CONTEXT_OP);
+  MATCH_TOKEN(regex::unary_math_op, UNARY_OP);
 
   MATCH_TOKEN(regex::floating_point, FLOAT);
   MATCH_TOKEN(regex::integer, INTEGER);

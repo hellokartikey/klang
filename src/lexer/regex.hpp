@@ -4,16 +4,26 @@
 #include <ctre.hpp>
 
 namespace klang::regex {
-constexpr auto whitespace = ctre::starts_with<R"([ \t\n]+)">;
+template <ctll::fixed_string Regex>
+constexpr auto regex = ctre::starts_with<Regex>;
 
-constexpr auto identifier = ctre::starts_with<R"([_a-zA-Z][_a-zA-Z0-9]*)">;
+constexpr auto whitespace = regex<R"([ \t\n]+)">;
 
-constexpr auto integer = ctre::starts_with<R"([0-9]+)">;
-constexpr auto floating_point =
-    ctre::starts_with<R"(([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+))">;
+constexpr auto identifier = regex<R"([_a-zA-Z][_a-zA-Z0-9]*)">;
 
-constexpr auto binary_op =
-    ctre::starts_with<R"((<<)|(>>)|(<=>)|(==)|(!=)|(&&)|(\|\|)|[*/%&^|?:])">;
+constexpr auto integer = regex<R"([0-9]+)">;
+constexpr auto floating_point = regex<R"(([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+))">;
+
+constexpr auto binary_math_op = regex<R"((<<)|(>>)|(&&)|(\|\|)|[*/%&|^])">;
+constexpr auto context_math_op = regex<R"([+\-])">;
+constexpr auto unary_math_op = regex<R"([~!])">;
+
+constexpr auto pre_post_op = regex<R"((\+\+)|(--))">;
+
+constexpr auto compare_op = regex<R"((==)|(!=)|(<=)|(>=)|(<=>)|[<>])">;
+
+constexpr auto assign_op =
+    regex<R"((\+=)|(-=)|(\*=)|(/=)|(%=)|(&=)|(\|=)|(^=)|(<<=)|(>>=)|(=))">;
 }  // namespace klang::regex
 
 #endif
